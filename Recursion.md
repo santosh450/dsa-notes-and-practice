@@ -342,15 +342,15 @@ public class SortedArray {
 
 ### Search - check if target is found
 
-isElement found - return true
-isElement found - return index element
-isElement found - return list of indexes
-isElement found - return Last index
-isElement found - return Last index Back Tracking 🔥
+isElement found - return true  
+isElement found - return index element  
+isElement found - return list of indexes  
+isElement found - return Last index  
+isElement found - **return Last index Back Tracking** 🔥  
 
-different references but same object
-vs
-different objects
+different references but same object  
+vs  
+different objects  
 ```java
 // ArrayList<Integer> list inside parameter - Makes different references but all points to same object
     private static ArrayList<Integer> foundAllIndex(int[] arr, int target, int index, ArrayList<Integer> list) {
