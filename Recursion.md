@@ -315,6 +315,77 @@ public class SubsetSumI {
     }
 }
 ```
+# Kunal's Notes
+
+### check if array is sorted
+```java
+public class SortedArray {
+
+    static boolean isSorted(int[] arr, int index){
+        if(arr.length-1 == index){
+            return true;
+        }
+
+        return (arr[index] < arr[index+1]) && isSorted(arr, index+1);
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {1, 5, 88, 96, 100};
+        System.out.println(isSorted(arr, 0));
+        int[] arr2 = {1, 5, 88, 96, 10};
+        System.out.println(isSorted(arr2, 0));
+
+    }
+}
+```
+
+### Search - check if target is found
+
+isElement found - return true
+isElement found - return index element
+isElement found - return list of indexes
+isElement found - return Last index
+isElement found - return Last index Back Tracking 🔥
+
+different references but same object
+vs
+different objects
+```java
+// ArrayList<Integer> list inside parameter - Makes different references but all points to same object
+    private static ArrayList<Integer> foundAllIndex(int[] arr, int target, int index, ArrayList<Integer> list) {
+        if(index == arr.length){
+            return list;
+        }
+        if(arr[index] == target){
+            list.add(index);
+        }
+        return foundAllIndex(arr, target, index+1,list);
+    }
+
+    // ArrayList<Integer> list inside function - new object objects
+    private static ArrayList<Integer> foundAllIndex2(int[] arr, int target, int index) {
+
+        ArrayList<Integer> list = new ArrayList<>();
+        if(index == arr.length){
+            return list;
+        }
+
+        // this will contain answer for that function call only
+        if(arr[index] == target){
+            list.add(index);
+        }
+        ArrayList<Integer>  ansFromBelowCalls = foundAllIndex2(arr, target, index+1);
+
+        list.addAll(ansFromBelowCalls);
+
+        return list;
+    }
+```
+
+Complete problem - [Solution](src/main/java/recursion/SearchElement.java)
+
+
 
 
 
