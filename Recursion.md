@@ -340,6 +340,7 @@ public class SortedArray {
 }
 ```
 
+## Linear Search
 ### Search - check if target is found
 
 isElement found - return true  
@@ -384,6 +385,57 @@ different objects
 ```
 
 Complete problem - [Solution](src/main/java/recursion/SearchElement.java)
+
+## Rotated Binary Search
+
+Complete problem - [Solution](src/main/java/recursion/RotatedBinarySearch.java)
+
+
+### Patterns
+
+Complete problem - [Solution](src/main/java/recursion/Patterns01.java)
+
+```java
+static void printPattern(int row, int column){
+        if(row==0){
+            return;
+        }
+        if(row == column){
+            System.out.println();
+            printPattern(row-1, 0);
+            return;
+        }
+        System.out.print("* ");
+        printPattern(row, column+1);
+    }
+```
+### vs
+
+```java
+static void printPattern01(int row, int column){
+        if(row==0){
+            return;
+        }
+        if(row == column){
+            System.out.println();
+            printPattern01(row-1, 0);
+        } else {
+            System.out.print("* ");
+            printPattern01(row, column + 1);
+        }
+    }
+```
+⚠️ **Important:** Always return recursive calls.
+
+### Bubble Sort
+
+Complete problem - [Solution](src/main/java/recursion/BubbleSort.java)
+
+### Selection Sort
+
+Complete problem - [Solution](src/main/java/recursion/SelectionSort.java)
+
+
 
 
 
