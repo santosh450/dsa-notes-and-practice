@@ -436,10 +436,70 @@ Complete problem - [Solution](src/main/java/recursion/BubbleSort.java)
 Complete problem - [Solution](src/main/java/recursion/SelectionSort.java)
 
 
+### skip character
 
+Complete problem - [Solution](src/main/java/recursion/Strings01.java)
 
+## SubSequences
+```java
+public class SubSeq {
 
+    public static void main(String[] args) {
+        subSequence("", "abc");
+    }
 
+    static void subSequence(String p, String up){
+        if(up.isEmpty()){
+            System.out.println(p);
+            return;
+        }
+        //take
+        subSequence(p+up.charAt(0), up.substring(1));
+        //Not take
+        subSequence(p, up.substring(1));
+    }
+}
+```
+Complete problem - [Solution](src/main/java/recursion/SubSeq.java)
 
+### Permutations
 
+```java
+public class Permutations {
 
+    public static void main(String[] args) {
+        permutations("", "abc");
+    }
+
+    public static void permutations(String p, String up){
+        if(up.isEmpty()){
+            System.out.println(p);
+            return;
+        }
+        char ch = up.charAt(0);
+        for(int i=0; i <= p.length(); i++){
+            String f = p.substring(0,i);
+            String s = p.substring(i);
+            permutations(f+ch+s, up.substring(1));
+        }
+    }
+}
+```
+### 🌳 Recursion Tree
+```
+"" , "abc"
+ └─ "a" , "bc"
+    ├─ "ba" , "c"
+    │   ├─ "cba"
+    │   └─ "bca"
+    └─ "ab" , "c"
+        ├─ "cab"
+        └─ "acb"
+
+```
+Complete problem - [Solution](src/main/java/recursion/Permutations.java)
+
+## 17. Letter Combinations of a Phone Number
+
+Leet Code 17 - [Problem](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)  
+Complete problem - [Solution](src/main/java/recursion/PhoneKeyPad.java)  
