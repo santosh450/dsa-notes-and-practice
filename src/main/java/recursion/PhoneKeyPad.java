@@ -22,6 +22,8 @@ public class PhoneKeyPad {
         pad("", "23");
         leetCode("", "23");
         leetCode("", "2");
+        leetCode("", "235");
+        System.out.println(leetCodeCount("", "235"));
     }
 
     static void pad(String p, String up){
@@ -38,14 +40,27 @@ public class PhoneKeyPad {
 
     static void leetCode(String p, String up){
         if(up.isEmpty()){
-            System.out.print(p+" ");
+            System.out.println(p+" ");
             return;
         }
-        String digit = map.get(up.charAt(0)); // convert '2' to 2
+        String digit = map.get(up.charAt(0));   // 2-> 'abc'
         for(int i = 0; i< digit.length(); i++){
             char ch = digit.charAt(i);
             leetCode(p+ch, up.substring(1));
         }
+    }
+
+    static int leetCodeCount(String p, String up){
+        if(up.isEmpty()){
+            return 1;
+        }
+        int count =0;
+        String digit = map.get(up.charAt(0));   // 2-> 'abc'
+        for(int i = 0; i< digit.length(); i++){
+            char ch = digit.charAt(i);
+            count = count + leetCodeCount(p+ch, up.substring(1));
+        }
+        return count;
     }
 
 }

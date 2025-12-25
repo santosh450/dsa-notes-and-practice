@@ -502,4 +502,150 @@ Complete problem - [Solution](src/main/java/recursion/Permutations.java)
 ## 17. Letter Combinations of a Phone Number
 
 Leet Code 17 - [Problem](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)  
-Complete problem - [Solution](src/main/java/recursion/PhoneKeyPad.java)  
+Complete problem - [Solution](src/main/java/recursion/PhoneKeyPad.java)
+
+## Single dice 
+4 -> {1111, 112, 121, 13, 211, 22, 31, 4 }
+```java
+public class Dice01 {
+
+    public static void main(String[] args) {
+        diceComb("", 4);
+    }
+
+    static void diceComb(String p, int target){
+        if(target==0){
+            System.out.println(p);
+            return;
+        }
+        for(int i=1; i<=6 && i<=target; i++){
+            diceComb(p+i, target-i);
+        }
+    }
+}
+```
+
+# Maze, BackTracking
+
+(3,3) -> (1,1)  (Consider only Right, Down)  
+Complete problem - [Solution](src/main/java/recursion/backTracking/Maze.java)  
+```java
+static int count01(int r, int c) {
+    if(r==1 || c==1){
+        return 1;
+    }
+    int right = count(r-1, c);
+    int down = count(r, c-1);
+    return right+down;
+}
+
+static void path01(String p, int r, int c) {
+    if(r==1 && c==1){
+        System.out.println(p);
+        return;
+    }
+    if(r>1) {
+        path01(p + 'D', r - 1, c);
+    }
+    if(c>1) {
+        path01(p + 'R', r, c - 1);
+    }
+}
+```
+### BackTracking
+
+consider Right, Down, Up and Left  
+## All Paths in Matrix (Backtracking)
+
+- true  → free cell
+- false → visited cell
+
+Algorithm:
+1. Mark current cell as visited
+2. Explore D, R, U, L
+3. If destination reached → print path
+4. Before returning → unmark cell (backtrack)
+
+Key Insight:
+Backtracking = Do → Explore → Undo
+
+```java
+static void allPaths(String p,boolean[][] maze,  int r, int c) {
+        if(r==maze.length-1 && c==maze[0].length-1){
+            System.out.println(p);
+            return;
+        }
+        if(!maze[r][c]){
+            return;
+        }
+        // consider this block in my path
+        maze[r][c] = false;
+        
+        if(r<maze.length-1) {
+            allPaths(p + 'D', maze, r + 1, c);
+        }
+        if(c<maze[0].length-1) {
+            allPaths(p + 'R', maze, r, c + 1);
+        }
+        if(r>0){
+            allPaths(p + 'U', maze, r-1, c);
+        }
+        if(c>0){
+            allPaths(p + 'L', maze, r, c-1);
+        }
+
+        //this line is  where the function will be over
+        //so before the function gets removed, also remove the changes that were made by that function
+        maze[r][c] = true;
+    }
+```
+Complete problem - [Solution](src/main/java/recursion/backTracking/AllPaths.java)  
+
+
+### N-Queens
+
+## N-Queens Backtracking
+
+Rules:
+- One queen per row
+- No same column
+- No diagonals
+
+Algorithm:
+1. Try placing queen row by row
+2. For each column:
+    - Check vertical & diagonals
+3. If safe → place queen
+4. Recurse to next row
+5. Backtrack after return
+
+Pattern:
+PLACE → EXPLORE → UNDO
+
+Complete problem - [Solution](src/main/java/recursion/backTracking/NQueens.java)
+
+## N-Knights Problem (Backtracking)
+
+Place **K knights** on an **N×N chessboard** such that **no two knights attack each other**.
+Print all valid boards and return the **count of solutions**. 
+
+Complete problem - [Solution](src/main/java/recursion/backTracking/NKnights.java)
+
+## Sudoku Solver (Backtracking)
+
+- Board: int[9][9]
+- 0 → empty cell
+- Try numbers 1–9
+
+Steps:
+1. Find first empty cell
+2. Try all numbers
+3. Check row, column, 3×3 box
+4. Place number
+5. Recurse
+6. Undo if failed
+
+Pattern:
+PLACE → EXPLORE → UNDO
+
+Complete problem - [Solution](src/main/java/recursion/backTracking/Sudoku.java)
