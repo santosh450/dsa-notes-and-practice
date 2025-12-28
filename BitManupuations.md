@@ -1,7 +1,7 @@
 ## 🔹 Bitwise Operators
 
 ### ✅ AND (`&`)
-0 & a = 0
+0 & a = 0  
 1 & a = a
 
 ✔ Used for masking and checking bits
@@ -9,7 +9,7 @@
 ---
 
 ### ✅ OR (`|`)
-0 | a = a
+0 | a = a  
 1 | a = 1
 
 ✔ Used to set bits
@@ -17,8 +17,8 @@
 ---
 
 ### ✅ XOR (`^`)
-0 ^ a = a
-1 ^ a = ~a (bit flip)
+0 ^ a = a  
+1 ^ a = ~a (bit flip)  
 a ^ a = 0
 
 ✔ Properties:
@@ -47,7 +47,7 @@ a = 00001010 (10)
 10 << 1 → 1010 << 1 → 10100 → 20
 
 Formulas:
-a << 1 = a * 2
+a << 1 = a * 2  
 a << b = a * (2^b)
 
 ✔ Fast multiplication by powers of 2
@@ -65,7 +65,7 @@ a >> 1 = a / 2
 ## 🔹 Even / Odd Check (LSB)
 
 ### Least Significant Bit
-n & 1 == 1 → Odd
+n & 1 == 1 → Odd  
 n & 1 == 0 → Even
 
 ---
@@ -73,7 +73,7 @@ n & 1 == 0 → Even
 ## 🔹 Find Single Number (Others Appear Twice)
 
 ### XOR Trick
-a ^ a = 0
+a ^ a = 0  
 a ^ 0 = a
 
 ### Java
@@ -132,8 +132,8 @@ n & (-n)
 (int)(log(n) / log(b)) + 1  
 
 
-🔹 Pascal Triangle – Sum of nth Row
-2^(n-1)
+🔹 Pascal Triangle – Sum of nth Row  
+2^(n-1)  
 Using bit shift:
 1 << (n - 1)
 
@@ -190,6 +190,6 @@ Complete problem - [Solution](src/main/java/bitManupulations/RangeXOR.java)
 
 ### Flip Image
 
-Complete problem - [Statement](https://leetcode.com/problems/flipping-an-image/description/)
+Complete problem - [Statement](https://leetcode.com/problems/flipping-an-image/description/)  
 Complete problem - [Solution](src/main/java/bitManupulations/FlipImage.java)
 
