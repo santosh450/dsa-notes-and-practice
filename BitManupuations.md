@@ -35,8 +35,8 @@ a ^ a = 0
 ### ✅ Complement (`~`)
 ~a → flips all bits
 
-Example (8-bit):
-a = 00001010 (10)  
+Example (8-bit):  
+ a = 00001010 (10)  
 ~a = 11110101
 
 ---
